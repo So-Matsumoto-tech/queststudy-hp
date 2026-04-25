@@ -1,0 +1,25 @@
+{
+  "name": "QuestStudy",
+  "short_name": "QuestStudy",
+  "description": "中学受験 × AI × RPGで、親子の対立をなくす。",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#1F3864",
+  "background_color": "#081222",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/",
+  "lang": "ja"
+}
