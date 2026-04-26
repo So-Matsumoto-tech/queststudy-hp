@@ -46,7 +46,7 @@ export function V2Header() {
           </a>
           <Link href="/for-parents" className="v2-btn v2-btn-primary">
             <span style={{ display: 'inline' }} className="v2-nav-cta-full">
-              ▶ ゲームを試す
+              ▶ ゲームを試す（今夏ベータ）
             </span>
             <span className="v2-btn-arrow" aria-hidden>
               →
