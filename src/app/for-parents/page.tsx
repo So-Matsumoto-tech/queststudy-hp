@@ -4,6 +4,7 @@ import { V2Header } from '@/components/v2/V2Header';
 import { V2Footer } from '@/components/v2/V2Footer';
 import RevealOnView from '@/components/ui/RevealOnView';
 import JsonLd from '@/components/seo/JsonLd';
+import HeroDecor from '@/components/v2/HeroDecor';
 import { SITE, PARENT_CARD } from '@/lib/constants';
 import {
   SITE_URL,
@@ -68,6 +69,7 @@ export default function ForParentsPage() {
 
       {/* ── Hero ── */}
       <section className="v2-hero" aria-labelledby="parents-heading">
+        <HeroDecor />
         <div className="v2-container v2-hero-content">
           <div style={{ maxWidth: 760 }}>
             <span className="v2-hero-tag">FOR PARENTS</span>
