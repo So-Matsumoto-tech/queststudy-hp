@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { V2Header } from '@/components/v2/V2Header';
 import { V2Footer } from '@/components/v2/V2Footer';
 import RevealOnView from '@/components/ui/RevealOnView';
+import HeroCanvas from '@/components/v2/HeroCanvasClient';
 import { PARENT_CARD, BUSINESS_CARD } from '@/lib/constants';
 
 const STATS = [
@@ -18,6 +19,10 @@ export default function Page() {
 
       {/* ── Hero ── */}
       <section className="v2-hero" aria-labelledby="hero-heading">
+        <div className="v2-hero-canvas-wrap" aria-hidden="true">
+          <HeroCanvas />
+        </div>
+
         <div className="v2-container v2-hero-content">
           <div style={{ maxWidth: 760 }}>
             <span className="v2-hero-tag">CHALLENGE THE QUEST</span>
