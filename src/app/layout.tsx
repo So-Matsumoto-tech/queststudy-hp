@@ -42,23 +42,17 @@ export const metadata: Metadata = {
     description: '挑め、クエスト。エンディングは「合格」だ。',
     url: 'https://queststudy.jp',
     siteName: 'QuestStudy',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'QuestStudy — 中学受験 × AI × RPGで、親子の対立をなくす。',
-      },
-    ],
     locale: 'ja_JP',
     type: 'website',
+    // OG image は src/app/opengraph-image.tsx で動的生成（next/og）。
+    // images: は明示しない — Next.js のファイルベース規約に任せる。
   },
   twitter: {
     card: 'summary_large_image',
     title: 'QuestStudy',
     description: '挑め、クエスト。エンディングは「合格」だ。',
-    images: ['/og-image.png'],
     creator: '@queststudy_jp',
+    // images: 同上。Twitter クライアントは og:image にフォールバック。
   },
   icons: {
     icon: [
