@@ -1,5 +1,21 @@
 import type { Metadata, Viewport } from 'next';
+import { BIZ_UDPGothic, Inter } from 'next/font/google';
 import './globals.css';
+import './v2.css';
+
+const bizUdp = BIZ_UDPGothic({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: '--font-biz-udp',
+  display: 'swap',
+});
+
+const inter = Inter({
+  weight: ['400', '500', '700', '900'],
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://queststudy.jp'),
@@ -97,7 +113,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased">{children}</body>
+      <body
+        className={`${bizUdp.variable} ${inter.variable} font-sans antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
