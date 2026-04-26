@@ -2,17 +2,28 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { V2Header } from '@/components/v2/V2Header';
 import { V2Footer } from '@/components/v2/V2Footer';
+import JsonLd from '@/components/seo/JsonLd';
 import { SITE } from '@/lib/constants';
+import { SITE_URL, breadcrumbListSchema } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'プライバシーポリシー',
   description:
     'QuestStudyにおける個人情報の取り扱い方針。収集情報、利用目的、未成年者への配慮、開示請求方法を記載。',
+  alternates: {
+    canonical: '/legal/privacy',
+  },
 };
 
 export default function PrivacyPage() {
   return (
     <main className="v2-bg" id="main">
+      <JsonLd
+        data={breadcrumbListSchema([
+          { name: 'ホーム', url: SITE_URL },
+          { name: 'プライバシーポリシー', url: `${SITE_URL}/legal/privacy` },
+        ])}
+      />
       <V2Header />
 
       <header className="v2-page-header">

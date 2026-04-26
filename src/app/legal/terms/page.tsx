@@ -2,11 +2,16 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { V2Header } from '@/components/v2/V2Header';
 import { V2Footer } from '@/components/v2/V2Footer';
+import JsonLd from '@/components/seo/JsonLd';
+import { SITE_URL, breadcrumbListSchema } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: '利用規約',
   description:
     'QuestStudyおよび関連サービスの利用規約。適用範囲、禁止事項、免責、知的財産権、準拠法。',
+  alternates: {
+    canonical: '/legal/terms',
+  },
 };
 
 interface Article {
@@ -136,6 +141,12 @@ const ARTICLES: ReadonlyArray<Article> = [
 export default function TermsPage() {
   return (
     <main className="v2-bg" id="main">
+      <JsonLd
+        data={breadcrumbListSchema([
+          { name: 'ホーム', url: SITE_URL },
+          { name: '利用規約', url: `${SITE_URL}/legal/terms` },
+        ])}
+      />
       <V2Header />
 
       <header className="v2-page-header">

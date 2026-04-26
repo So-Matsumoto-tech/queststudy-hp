@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { BIZ_UDPGothic, Inter } from 'next/font/google';
+import JsonLd from '@/components/seo/JsonLd';
+import { organizationSchema, websiteSchema } from '@/lib/seo';
 import './globals.css';
 import './v2.css';
 
@@ -73,23 +75,23 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  // Search Console / Bing 認証は env 経由で出し分け（Vercel に環境変数を
+  // 設定すればビルド時に <meta name="google-site-verification"> 等が出る）。
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : undefined,
+  },
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export const viewport: Viewport = {
   themeColor: '#ffffff',
   width: 'device-width',
   initialScale: 1,
-};
-
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'QuestStudy',
-  url: 'https://queststudy.jp',
-  logo: 'https://queststudy.jp/icon-512x512.png',
-  sameAs: ['https://x.com/queststudy_jp'],
-  description:
-    '中学受験 × AI × RPGで、親子の対立をなくす、データドリブン学習プラットフォーム。',
 };
 
 export default function RootLayout({
@@ -102,10 +104,8 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLd data={organizationSchema()} />
+        <JsonLd data={websiteSchema()} />
       </head>
       <body
         className={`${bizUdp.variable} ${inter.variable} font-sans antialiased`}

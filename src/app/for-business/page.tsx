@@ -3,12 +3,17 @@ import Link from 'next/link';
 import { V2Header } from '@/components/v2/V2Header';
 import { V2Footer } from '@/components/v2/V2Footer';
 import RevealOnView from '@/components/ui/RevealOnView';
+import JsonLd from '@/components/seo/JsonLd';
 import { SITE } from '@/lib/constants';
+import { SITE_URL, breadcrumbListSchema } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: '事業について',
   description:
     'QuestStudy は個人事業としてスタートしたばかりのプロジェクトです。事業パートナーの募集は現在行っておりません。',
+  alternates: {
+    canonical: '/for-business',
+  },
 };
 
 interface StatusItem {
@@ -41,6 +46,12 @@ const STATUS: ReadonlyArray<StatusItem> = [
 export default function ForBusinessPage() {
   return (
     <main className="v2-bg" id="main">
+      <JsonLd
+        data={breadcrumbListSchema([
+          { name: 'ホーム', url: SITE_URL },
+          { name: '事業について', url: `${SITE_URL}/for-business` },
+        ])}
+      />
       <V2Header />
 
       {/* ── Hero ── */}

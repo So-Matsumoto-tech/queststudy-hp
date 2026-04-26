@@ -3,12 +3,21 @@ import Link from 'next/link';
 import { V2Header } from '@/components/v2/V2Header';
 import { V2Footer } from '@/components/v2/V2Footer';
 import RevealOnView from '@/components/ui/RevealOnView';
+import JsonLd from '@/components/seo/JsonLd';
 import { SITE } from '@/lib/constants';
+import {
+  SITE_URL,
+  breadcrumbListSchema,
+  personSchema,
+} from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: '開発者ストーリー / プロフィール',
   description:
     'QuestStudy 開発者プロフィール。AI ドリブン経営戦略立案者として企業に在籍中。2027 年中学受験を控える娘のために、中学受験 × AI × RPG の学習アプリ「マナ・マスタークロニクル」を個人事業として開発中。',
+  alternates: {
+    canonical: '/story',
+  },
 };
 
 interface Highlight {
@@ -41,6 +50,13 @@ const HIGHLIGHTS: ReadonlyArray<Highlight> = [
 export default function StoryPage() {
   return (
     <main className="v2-bg" id="main">
+      <JsonLd
+        data={breadcrumbListSchema([
+          { name: 'ホーム', url: SITE_URL },
+          { name: 'プロフィール', url: `${SITE_URL}/story` },
+        ])}
+      />
+      <JsonLd data={personSchema()} />
       <V2Header />
 
       {/* ── Hero ── */}

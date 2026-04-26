@@ -2,12 +2,17 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { V2Header } from '@/components/v2/V2Header';
 import { V2Footer } from '@/components/v2/V2Footer';
+import JsonLd from '@/components/seo/JsonLd';
 import { SITE } from '@/lib/constants';
+import { SITE_URL, breadcrumbListSchema } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: '特定商取引法に基づく表記',
   description:
     'QuestStudyの特定商取引法に基づく表記。販売業者情報、商品価格、支払方法、返品条件等を記載。',
+  alternates: {
+    canonical: '/legal/tokushoho',
+  },
 };
 
 const ROWS: ReadonlyArray<readonly [string, string]> = [
@@ -40,6 +45,15 @@ const ROWS: ReadonlyArray<readonly [string, string]> = [
 export default function TokushohoPage() {
   return (
     <main className="v2-bg" id="main">
+      <JsonLd
+        data={breadcrumbListSchema([
+          { name: 'ホーム', url: SITE_URL },
+          {
+            name: '特定商取引法に基づく表記',
+            url: `${SITE_URL}/legal/tokushoho`,
+          },
+        ])}
+      />
       <V2Header />
 
       <header className="v2-page-header">

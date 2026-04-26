@@ -3,12 +3,21 @@ import Link from 'next/link';
 import { V2Header } from '@/components/v2/V2Header';
 import { V2Footer } from '@/components/v2/V2Footer';
 import RevealOnView from '@/components/ui/RevealOnView';
+import JsonLd from '@/components/seo/JsonLd';
 import { SITE, PARENT_CARD } from '@/lib/constants';
+import {
+  SITE_URL,
+  breadcrumbListSchema,
+  softwareApplicationSchema,
+} from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: '保護者の方へ',
   description:
     'マナ・マスタークロニクルは中学受験の家庭学習をRPGに変える学習アプリです。SM-2アルゴリズムとAIで忘却曲線に最適化された復習を実現。今夏ベータテスト開始予定。',
+  alternates: {
+    canonical: '/for-parents',
+  },
 };
 
 const STATS = [
@@ -48,6 +57,13 @@ const FEATURES: ReadonlyArray<FeatureItem> = [
 export default function ForParentsPage() {
   return (
     <main className="v2-bg" id="main">
+      <JsonLd
+        data={breadcrumbListSchema([
+          { name: 'ホーム', url: SITE_URL },
+          { name: '保護者の方へ', url: `${SITE_URL}/for-parents` },
+        ])}
+      />
+      <JsonLd data={softwareApplicationSchema()} />
       <V2Header />
 
       {/* ── Hero ── */}
