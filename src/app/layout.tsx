@@ -47,7 +47,7 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'QuestStudy — A Celestial Catalogue',
+        alt: 'QuestStudy — 中学受験 × AI × RPGで、親子の対立をなくす。',
       },
     ],
     locale: 'ja_JP',
