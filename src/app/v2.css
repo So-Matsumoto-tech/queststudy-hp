@@ -454,11 +454,21 @@
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.5rem;
   margin-top: 2.5rem;
+  align-items: stretch;
+}
+
+/* RevealOnView の wrapper (.v2-reveal) を grid stretch から card まで
+ * 伝搬させ、3 枚カードの縦ラインを揃える。 */
+.v2-bg .v2-pillar-grid > .v2-reveal {
+  display: flex;
+  flex-direction: column;
 }
 
 .v2-bg .v2-pillar-card {
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
+  height: 100%;
   background: white;
   border: 1px solid var(--v2-line);
   border-radius: var(--v2-radius-xl);
