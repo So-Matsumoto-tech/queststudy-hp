@@ -1,40 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap');
 @import "tailwindcss";
 
-@theme {
-  --color-brand-night: #081222;
-  --color-brand-navy: #1F3864;
-  --color-brand-celestial: #4082BE;
-  --color-brand-brass: #D4A574;
-  --color-brand-brass-deep: #B88A5C;
-  --color-brand-parchment: #F5F0E6;
-  --color-brand-parchment-dim: #B4AC9C;
-
-  --font-display: "Noto Serif JP", "IBM Plex Serif", "Yu Mincho", "Hiragino Mincho ProN", serif;
-  --font-sans: "Noto Sans JP", "Yu Gothic", "Hiragino Kaku Gothic ProN", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
-}
-
-:root {
-  --color-bg: #081222;
-  --color-fg: #f5f0e6;
-  --color-brass: #d4a574;
-}
-
+/* デフォルトの surface（v2-bg スコープ外）。実コンテンツは
+ * すべて .v2-bg 配下にラップされ v2.css で別途スタイリングされる。
+ * ここではフォールバックの surface トーンのみ定義する。 */
 html {
-  background: var(--color-bg);
-  color-scheme: dark;
+  background: #ffffff;
 }
 
 body {
-  background: var(--color-bg);
-  color: var(--color-fg);
+  background: #ffffff;
+  color: #0e1116;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: var(--color-brass);
-  color: var(--color-bg);
+  background: #d1fae5;
+  color: #065f46;
 }
